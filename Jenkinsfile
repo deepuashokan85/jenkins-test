@@ -20,7 +20,7 @@ pipeline {
        steps {
          container('terraform') {
            sh 'terraform init'
-           sh 'terraform plan -out myplan'
+           sh 'terraform plan'
          }
        }
      }
@@ -36,7 +36,7 @@ pipeline {
     stage('TF Apply') {
       steps {
         container('terraform') {
-          sh terraform apply -input=false myplan'
+          sh 'terraform apply'
         }
       }
     }
